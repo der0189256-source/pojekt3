@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="VidaBay.net - Shop quality products at great prices." />
+  <title>VidaBay.net | Online Shopping</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #111827;
+      --secondary: #2563eb;
+      --accent: #f97316;
+      --light: #f8fafc;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --white: #ffffff;
+      --border: #e5e7eb;
+      --success: #16a34a;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.5;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1200px, 92%);
+      margin: auto;
+    }
+
+    /* TOP BAR */
+    .top-bar {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 8px;
+      font-size: 13px;
+    }
+
+    /* HEADER */
+    header {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header-main {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .logo span {
+      color: var(--secondary);
+    }
+
+    .search-box {
+      flex: 1;
+      max-width: 500px;
+      display: flex;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .search-box input {
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 12px 15px;
+    }
+
+    .search-box button {
+      border: none;
+      background: var(--secondary);
+      color: white;
+      padding: 0 20px;
+      cursor: pointer;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .action {
+      position: relative;
+      cursor: pointer;
+      font-size: 22px;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -10px;
+      background: var(--accent);
+      color: white;
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-btn {
+      display: none;
+      border: none;
+      background: transparent;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    /* NAVIGATION */
+    nav {
+      border-top: 1px solid #f1f1f1;
+    }
+
+    .nav-menu {
+      min-height: 48px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-menu a {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .nav-menu a:hover {
+      color: var(--secondary);
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(120deg, #eff6ff, #f8fafc);
+      padding: 55px 0;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-text small {
+      color: var(--secondary);
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1.05;
+      margin: 15px 0;
+      color: var(--primary);
+    }
+
+    .hero-text h1 span {
+      color: var(--secondary);
+    }
+
+    .hero-text p {
+      max-width: 560px;
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 25px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      border: none;
+      border-radius: 7px;
+      padding: 13px 22px;
+      cursor: pointer;
+      font-weight: 700;
+      transition: 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--secondary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+
+    .btn-outline {
+      background: white;
+      border: 1px solid var(--border);
+      color: var(--primary);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-image {
+      min-height: 350px;
+      border-radius: 20px;
+      background:
+        linear-gradient(135deg, rgba(37,99,235,.12), rgba(249,115,22,.15)),
+        url("https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=80")
+        center/cover;
+    }
+
+    /* FEATURES */
+    .features {
+      padding: 25px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .feature-icon {
+      font-size: 27px;
+    }
+
+    .feature h4 {
+      font-size: 14px;
+    }
+
+    .feature p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* SECTION */
+    section {
+      padding: 65px 0;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-heading h2 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    /* CATEGORIES */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 15px;
+    }
+
+    .category {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 10px;
+      text-align: center;
+      transition: 0.25s;
+      cursor: pointer;
+      background: white;
+    }
+
+    .category:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,.07);
+    }
+
+    .category-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      background: #eff6ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+
+    .category h4 {
+      font-size: 14px;
+    }
+
+    /* PRODUCTS */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      background: white;
+      transition: 0.25s;
+      position: relative;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0,0,0,.08);
+    }
+
+    .product-image {
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      background: #f3f4f6;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.3s;
+    }
+
+    .product-card:hover .product-image img {
+      transform: scale(1.05);
+    }
+
+    .sale-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--accent);
+      color: white;
+      padding: 5px 9px;
+      border-radius: 5px;
+      font-size: 11px;
+      font-weight: bold;
+    }
+
+    .wishlist {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 35px;
+      height: 35px;
+      border: none;
+      background: white;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .wishlist.active {
+      color: #ef4444;
+    }
+
+    .product-info {
+      padding: 16px;
+    }
+
+    .product-category {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .product-title {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+
+    .rating {
+      color: #f59e0b;
+      font-size: 13px;
+      margin: 5px 0;
+    }
+
+    .price {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .old-price {
+      color: #9ca3af;
+      text-decoration: line-through;
+      font-size: 13px;
+      margin-left: 5px;
+    }
+
+    .add-cart {
+      width: 100%;
+      margin-top: 12px;
+      background: var(--primary);
+      color: white;
+    }
+
+    .add-cart:hover {
+      background: var(--secondary);
+    }
+
+    /* PROMO */
+    .promo {
+      background: var(--primary);
+      color: white;
+      border-radius: 18px;
+      padding: 45px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .promo h2 {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .promo p {
+      color: #d1d5db;
+    }
+
+    /* NEWSLETTER */
+    .newsletter {
+      background: #f8fafc;
+      text-align: center;
+    }
+
+    .newsletter-form {
+      max-width: 550px;
+      margin: 25px auto 0;
+      display: flex;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      padding: 14px;
+      border: none;
+      outline: none;
+    }
+
+    .newsletter-form button {
+      border: none;
+      padding: 0 20px;
+      background: var(--secondary);
+      color: white;
+      cursor: pointer;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #111827;
+      color: white;
+      padding: 55px 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-logo {
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .footer-logo span {
+      color: #60a5fa;
+    }
+
+    footer p {
+      color: #9ca3af;
+      font-size: 14px;
+    }
+
+    footer h3 {
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 9px;
+    }
+
+    .footer-links a {
+      color: #9ca3af;
+      font-size: 14px;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    .copyright {
+      border-top: 1px solid #374151;
+      margin-top: 40px;
+      padding-top: 20px;
+      text-align: center;
+      color: #9ca3af;
+      font-size: 13px;
+    }
+
+    /* CART DRAWER */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.45);
+      display: none;
+      z-index: 2000;
+    }
+
+    .cart-overlay.show {
+      display: block;
+    }
+
+    .cart-drawer {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: min(400px, 92%);
+      height: 100%;
+      background: white;
+      padding: 25px;
+      overflow-y: auto;
+    }
+
+    .cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 15px;
+    }
+
+    .close-cart {
+      border: none;
+      background: none;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 12px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cart-item img {
+      width: 65px;
+      height: 65px;
+      object-fit: cover;
+      border-radius: 7px;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item-info h4 {
+      font-size: 14px;
+    }
+
+    .cart-item-info p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .cart-total {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .checkout {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    /* TOAST */
+    .toast {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background: rgba(17,24,39,0.95);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.25);
+      display: none;
+      z-index: 3000;
+    }
+
+    .toast.show {
+      display: block;
+      animation: pop 0.18s ease;
+    }
+
+    @keyframes pop {
+      from { transform: translateY(6px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* MOBILE */
+    @media (max-width: 900px) {
+      .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image {
+        min-height: 280px;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .header-main {
+        min-height: 65px;
+      }
+
+      .logo {
+        font-size: 23px;
+      }
+
+      .search-box {
+        position: absolute;
+        left: 4%;
+        right: 4%;
+        top: 72px;
+        max-width: none;
+      }
+
+      header {
+        margin-bottom: 60px;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .nav-menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 15px 0;
+        gap: 15px;
+      }
+
+      .nav-menu.show {
+        display: flex;
+      }
+
+      .header-actions {
+        gap: 10px;
+      }
+
+      .hero {
+        padding: 40px 0;
+      }
+
+      .hero-text h1 {
+        font-size: 42px;
+      }
+
+      .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .promo {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px;
+      }
+
+      .promo h2 {
+        font-size: 25px;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .newsletter-form input {
+        padding: 15px;
+      }
+
+      .newsletter-form button {
+        padding: 14px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .product-image {
+        height: 180px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar" role="status" aria-live="polite">
+    🚚 Free shipping on selected orders | Secure & easy shopping at VidaBay.net
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container header-main">
+
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle navigation">☰</button>
+
+      <a href="#" class="logo">VidaBay<span>.net</span></a>
+
+      <form class="search-box" id="searchForm" role="search" aria-label="Search products">
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Search products..."
+          aria-label="Search products"
+        />
+        <button id="searchBtn" type="submit" aria-label="Search">🔍</button>
+      </form>
+
+      <div class="header-actions">
+        <button class="action" title="Wishlist" aria-label="Wishlist" type="button">♡</button>
+
+        <button class="action" id="cartBtn" title="Shopping Cart" aria-label="Open shopping cart" type="button">
+          🛒
+          <span class="cart-count" id="cartCount" aria-live="polite">0</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav>
+      <div class="container">
+        <ul class="nav-menu" id="navMenu" role="menubar" aria-label="Main navigation">
+          <li role="none"><a role="menuitem" href="#">Home</a></li>
+          <li role="none"><a role="menuitem" href="#shop">Shop</a></li>
+          <li role="none"><a role="menuitem" href="#categories">Categories</a></li>
+          <li role="none"><a role="menuitem" href="#deals">Deals</a></li>
+          <li role="none"><a role="menuitem" href="#about">About Us</a></li>
+          <li role="none"><a role="menuitem" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <main>
+
+    <section class="hero">
+      <div class="container hero-content">
+
+        <div class="hero-text">
+          <small>Welcome to VidaBay</small>
+
+          <h1>
+            Shop Smart.<br />
+            Live <span>Better.</span>
+          </h1>
+
+          <p>
+            Discover quality products, amazing deals and a simple shopping
+            experience—all in one place.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#shop" class="btn btn-primary">
+              Shop Now →
+            </a>
+
+            <a href="#categories" class="btn btn-outline">
+              Explore Categories
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-image" aria-hidden="true"></div>
+
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" aria-hidden="false">
+      <div class="container feature-grid">
+
+        <div class="feature">
+          <div class="feature-icon" aria-hidden="true">🚚</div>
+          <div>
+            <h4>Fast Delivery</h4>
+            <p>Quick & reliable shipping</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon" aria-hidden="true">🔒</div>
+          <div>
+            <h4>Secure Payment</h4>
+            <p>Safe checkout experience</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon" aria-hidden="true">↩️</div>
+          <div>
+            <h4>Easy Returns</h4>
+            <p>Simple return process</p>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon" aria-hidden="true">💬</div>
+          <div>
+            <h4>Customer Support</h4>
+            <p>We're here to help</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CATEGORIES -->
+    <section id="categories">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Shop by Category</h2>
+          <p>Find what you're looking for quickly.</p>
+        </div>
+
+        <div class="category-grid">
+
+          <div class="category" tabindex="0" role="button" aria-pressed="false">
+            <div class="category-icon" aria-hidden="true">👕</div>
+            <h4>Fashion</h4>
+          </div>
+
+          <div class="category" tabindex="0" role="button" aria-pressed="false">
+            <div class="category-icon" aria-hidden="true">📱</div>
+            <h4>Electronics</h4>
+          </div>
+
+          <div class="category" tabindex="0" role="button" aria-pressed="false">
+            <div class="category-icon" aria-hidden="true">🏠</div>
+            <h4>Home</h4>
+          </div>
+
+          <div class="category" tabindex="0" role="button" aria-pressed="false">
+            <div class="category-icon" aria-hidden="true">💄</div>
+            <h4>Beauty</h4>
+          </div>
+
+          <div class="category" tabindex="0" role="button" aria-pressed="false">
+            <div class="category-icon" aria-hidden="true">🎒</div>
+            <h4>Accessories</h4>
+          </div>
+
+          <div class="category" tabindex="0" role="button" aria-pressed="false">
+            <div class="category-icon" aria-hidden="true">⚽</div>
+            <h4>Sports</h4>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="shop">
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Featured Products</h2>
+          <p>Popular products selected for you.</p>
+        </div>
+
+        <div class="product-grid" id="productGrid">
+
+          <!-- PRODUCT 1 -->
+          <div class="product-card" data-name="Classic Sneakers" data-price="49.99" data-image="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80">
+            <div class="product-image">
+              <span class="sale-badge">SALE</span>
+
+              <button class="wishlist" type="button" aria-label="Add Classic Sneakers to wishlist" aria-pressed="false">♡</button>
+
+              <img
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80"
+                alt="Classic Sneakers"
+              />
+            </div>
+
+            <div class="product-info">
+              <span class="product-category">Fashion</span>
+
+              <h3 class="product-title">
+                Classic Sneakers
+              </h3>
+
+              <div class="rating" aria-hidden="true">
+                ★★★★★
+              </div>
+
+              <div>
+                <span class="price">$49.99</span>
+                <span class="old-price">$69.99</span>
+              </div>
+
+              <button
+                class="btn add-cart"
+                type="button"
+                aria-label="Add Classic Sneakers to cart"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- PRODUCT 2 -->
+          <div class="product-card" data-name="Wireless Headphones" data-price="79.99" data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80">
+            <div class="product-image">
+              <button class="wishlist" type="button" aria-label="Add Wireless Headphones to wishlist" aria-pressed="false">♡</button>
+
+              <img loading="lazy"
+                src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=700&q=80"
+                alt="Wireless Headphones"
+              />
+            </div>
+
+            <div class="product-info">
+              <span class="product-category">Electronics</span>
+
+              <h3 class="product-title">
+                Wireless Headphones
+              </h3>
+
+              <div class="rating" aria-hidden="true">
+                ★★★★★
+              </div>
+
+              <div>
+                <span class="price">$79.99</span>
+              </div>
+
+              <button
+                class="btn add-cart"
+                type="button"
+                aria-label="Add Wireless Headphones to cart"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- PRODUCT 3 -->
+          <div class="product-card" data-name="Smart Watch Pro" data-price="199.99" data-image="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80">
+            <div class="product-image">
+              <span class="sale-badge">-20%</span>
+
+              <button class="wishlist" type="button" aria-label="Add Smart Watch Pro to wishlist" aria-pressed="false">♡</button>
+
+              <img loading="lazy"
+                src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=700&q=80"
+                alt="Smart Watch"
+              />
+            </div>
+
+            <div class="product-info">
+              <span class="product-category">Electronics</span>
+
+              <h3 class="product-title">
+                Smart Watch Pro
+              </h3>
+
+              <div class="rating" aria-hidden="true">
+                ★★★★☆
+              </div>
+
+              <div>
+                <span class="price">$199.99</span>
+                <span class="old-price">$249.99</span>
+              </div>
+
+              <button
+                class="btn add-cart"
+                type="button"
+                aria-label="Add Smart Watch Pro to cart"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- PRODUCT 4 -->
+          <div class="product-card" data-name="Premium Winter Jacket" data-price="149.99" data-image="https://images.unsplash.com/photo-1551028719-00167b16ebc5?auto=format&fit=crop&w=700&q=80">
+            <div class="product-image">
+              <button class="wishlist" type="button" aria-label="Add Premium Winter Jacket to wishlist" aria-pressed="false">♡</button>
+
+              <img loading="lazy"
+                src="https://images.unsplash.com/photo-1551028719-00167b16ebc5?auto=format&fit=crop&w=700&q=80"
+                alt="Winter Jacket"
+              />
+            </div>
+
+            <div class="product-info">
+              <span class="product-category">Fashion</span>
+
+              <h3 class="product-title">
+                Premium Winter Jacket
+              </h3>
+
+              <div class="rating" aria-hidden="true">
+                ★★★★★
+              </div>
+
+              <div>
+                <span class="price">$149.99</span>
+              </div>
+
+              <button
+                class="btn add-cart"
+                type="button"
+                aria-label="Add Premium Winter Jacket to cart"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- PRODUCT 5 -->
+          <div class="product-card" data-name="4K Digital Camera" data-price="599.99" data-image="https://images.unsplash.com/photo-1609034227505-5876f6aa4e90?auto=format&fit=crop&w=700&q=80">
+            <div class="product-image">
+              <span class="sale-badge">HOT</span>
+
+              <button class="wishlist" type="button" aria-label="Add 4K Digital Camera to wishlist" aria-pressed="false">♡</button>
+
+              <img loading="lazy"
+                src="https://images.unsplash.com/photo-1609034227505-5876f6aa4e90?auto=format&fit=crop&w=700&q=80"
+                alt="Camera"
+              />
+            </div>
+
+            <div class="product-info">
+              <span class="product-category">Electronics</span>
+
+              <h3 class="product-title">
+                4K Digital Camera
+              </h3>
+
+              <div class="rating" aria-hidden="true">
+                ★★★★★
+              </div>
+
+              <div>
+                <span class="price">$599.99</span>
+              </div>
+
+              <button
+                class="btn add-cart"
+                type="button"
+                aria-label="Add 4K Digital Camera to cart"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- PRODUCT 6 -->
+          <div class="product-card" data-name="Travel Backpack" data-price="89.99" data-image="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80">
+            <div class="product-image">
+              <button class="wishlist" type="button" aria-label="Add Travel Backpack to wishlist" aria-pressed="false">♡</button>
+
+              <img loading="lazy"
+                src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=700&q=80"
+                alt="Backpack"
+              />
+            </div>
+
+            <div class="product-info">
+              <span class="product-category">Accessories</span>
+
+              <h3 class="product-title">
+                Travel Backpack
+              </h3>
+
+              <div class="rating" aria-hidden="true">
+                ★★★★☆
+              </div>
+
+              <div>
+                <span class="price">$89.99</span>
+              </div>
+
+              <button
+                class="btn add-cart"
+                type="button"
+                aria-label="Add Travel Backpack to cart"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- PRODUCT 7 -->
+          <div class="product-card" data-name="Classic Sunglasses" data-price="39.99" data-image="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=700&q=80">
+            <div class="product-image">
+              <span class="sale-badge">SALE</span>
+
+              <button class="wishlist" type="button" aria-label="Add Classic Sunglasses to wishlist" aria-pressed="false">♡</button>
+
+              <img loading="lazy"
+                src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=700&q=80"
+                alt="Sunglasses"
+              />
+            </div>
+
+            <div class="product-info">
+              <span class="product-category">Accessories</span>
+
+              <h3 class="product-title">
+                Classic Sunglasses
+              </h3>
+
+              <div class="rating" aria-hidden="true">
+                ★★★★★
+              </div>
+
+              <div>
+                <span class="price">$39.99</span>
+                <span class="old-price">$59.99</span>
+              </div>
+
+              <button
+                class="btn add-cart"
+                type="button"
+                aria-label="Add Classic Sunglasses to cart"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+          <!-- PRODUCT 8 -->
+          <div class="product-card" data-name="Bluetooth Speaker" data-price="69.99" data-image="https://images.unsplash.com/photo-1589003077984-894e133da41a?auto=format&fit=crop&w=700&q=80">
+            <div class="product-image">
+              <button class="wishlist" type="button" aria-label="Add Bluetooth Speaker to wishlist" aria-pressed="false">♡</button>
+
+              <img loading="lazy"
+                src="https://images.unsplash.com/photo-1589003077984-894e133da41a?auto=format&fit=crop&w=700&q=80"
+                alt="Speaker"
+              />
+            </div>
+
+            <div class="product-info">
+              <span class="product-category">Electronics</span>
+
+              <h3 class="product-title">
+                Bluetooth Speaker
+              </h3>
+
+              <div class="rating" aria-hidden="true">
+                ★★★★☆
+              </div>
+
+              <div>
+                <span class="price">$69.99</span>
+              </div>
+
+              <button
+                class="btn add-cart"
+                type="button"
+                aria-label="Add Bluetooth Speaker to cart"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROMO SECTION -->
+    <section id="deals">
+      <div class="container">
+        <div class="promo">
+          <div>
+            <h2>Exclusive Deals 🎉</h2>
+            <p>Limited time offers on selected items. Shop now and save big!</p>
+          </div>
+          <a href="#shop" class="btn btn-primary">Shop Deals</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER SECTION -->
+    <section class="newsletter">
+      <div class="container">
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>Get exclusive offers and updates delivered to your inbox</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input
+            type="email"
+            placeholder="Enter your email..."
+            required
+            aria-label="Email address for newsletter"
+          />
+          <button type="submit" class="btn btn-primary">Subscribe</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="about">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- COLUMN 1 -->
+        <div>
+          <div class="footer-logo">
+            VidaBay<span>.net</span>
+          </div>
+          <p>
+            Your trusted online shopping destination. We offer quality products
+            at great prices with excellent customer service.
+          </p>
+        </div>
+
+        <!-- COLUMN 2 -->
+        <div>
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="#shop">Shop</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#deals">Deals</a></li>
+            <li><a href="#">New Arrivals</a></li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 3 -->
+        <div>
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Returns</a></li>
+          </ul>
+        </div>
+
+        <!-- COLUMN 4 -->
+        <div id="contact">
+          <h3>Contact</h3>
+          <ul class="footer-links">
+            <li><a href="mailto:info@vidabay.net">info@vidabay.net</a></li>
+            <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+            <li>Follow us on social media</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="copyright">
+        &copy; 2024 VidaBay.net. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cartOverlay" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="cartHeading">
+    <div class="cart-drawer">
+      <div class="cart-header">
+        <h3 id="cartHeading">Shopping Cart</h3>
+        <button class="close-cart" id="closeCart" type="button" aria-label="Close cart">✕</button>
+      </div>
+
+      <div id="cartItems" aria-live="polite"></div>
+
+      <div class="cart-total">
+        <span>Total:</span>
+        <span id="cartTotal">$0.00</span>
+      </div>
+
+      <button class="btn btn-primary checkout" type="button">
+        Proceed to Checkout
+      </button>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // Elements
+    const menuBtn = document.getElementById("menuBtn");
+    const navMenu = document.getElementById("navMenu");
+    const cartBtn = document.getElementById("cartBtn");
+    const cartOverlay = document.getElementById("cartOverlay");
+    const closeCart = document.getElementById("closeCart");
+    const cartCount = document.getElementById("cartCount");
+    const cartItems = document.getElementById("cartItems");
+    const cartTotal = document.getElementById("cartTotal");
+    const productGrid = document.getElementById("productGrid");
+    const toast = document.getElementById("toast");
+    const searchForm = document.getElementById("searchForm");
+    const searchInput = document.getElementById("searchInput");
+
+    // Namespaced localStorage key
+    const STORAGE_KEY = "vidabay_cart_v1";
+
+    // Load cart
+    let cart = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
+
+    // Utility: show toast
+    function showToast(message, timeout = 2200) {
+      toast.textContent = message;
+      toast.classList.add("show");
+      clearTimeout(toast._t);
+      toast._t = setTimeout(() => {
+        toast.classList.remove("show");
+      }, timeout);
+    }
+
+    // Update cart display
+    function updateCart() {
+      cartCount.textContent = cart.length;
+      cartItems.innerHTML = "";
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        total += parseFloat(item.price || 0);
+
+        const row = document.createElement("div");
+        row.className = "cart-item";
+        row.innerHTML = `
+          <img src="${item.image}" alt="${item.name}" loading="lazy" />
+          <div class="cart-item-info">
+            <h4>${item.name}</h4>
+            <p>$${parseFloat(item.price).toFixed(2)}</p>
+          </div>
+          <button class="remove-btn" data-index="${index}" aria-label="Remove ${item.name} from cart" style="border: none; background: #ef4444; color: white; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Remove</button>
+        `;
+        cartItems.appendChild(row);
+      });
+
+      cartTotal.textContent = "$" + total.toFixed(2);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+    }
+
+    // Remove handler (event delegation)
+    cartItems.addEventListener("click", (e) => {
+      const btn = e.target.closest(".remove-btn");
+      if (!btn) return;
+      const index = Number(btn.dataset.index);
+      if (!Number.isNaN(index)) {
+        cart.splice(index, 1);
+        updateCart();
+        showToast("Item removed from cart");
+      }
+    });
+
+    // Add to cart using event delegation on productGrid
+    productGrid.addEventListener("click", (e) => {
+      const addBtn = e.target.closest(".add-cart");
+      if (!addBtn) return;
+
+      // find parent product-card to read dataset
+      const card = addBtn.closest(".product-card");
+      if (!card) return;
+
+      const name = card.dataset.name || card.querySelector(".product-title")?.textContent?.trim() || "Product";
+      const price = card.dataset.price || card.querySelector(".price")?.textContent?.replace(/[^0-9.]/g, "") || "0";
+      const image = card.dataset.image || card.querySelector("img")?.src || "";
+
+      cart.push({ name, price, image });
+      updateCart();
+      showToast(`${name} added to cart`);
+    });
+
+    // Wishlist toggling (event delegation)
+    productGrid.addEventListener("click", (e) => {
+      const wBtn = e.target.closest(".wishlist");
+      if (!wBtn) return;
+      const pressed = wBtn.getAttribute("aria-pressed") === "true";
+      wBtn.setAttribute("aria-pressed", String(!pressed));
+      wBtn.classList.toggle("active", !pressed);
+      showToast(!pressed ? "Added to wishlist" : "Removed from wishlist");
+    });
+
+    // Cart drawer open/close
+    cartBtn.addEventListener("click", () => {
+      cartOverlay.classList.add("show");
+      cartOverlay.setAttribute("aria-hidden", "false");
+      // trap focus could be improved if needed
+      document.body.style.overflow = "hidden";
+    });
+
+    function closeCartDrawer() {
+      cartOverlay.classList.remove("show");
+      cartOverlay.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = "";
+    }
+
+    closeCart.addEventListener("click", closeCartDrawer);
+
+    cartOverlay.addEventListener("click", (e) => {
+      if (e.target === cartOverlay) closeCartDrawer();
+    });
+
+    // Close cart with Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        if (cartOverlay.classList.contains("show")) {
+          closeCartDrawer();
+        }
+        // close nav menu on mobile
+        if (navMenu.classList.contains("show")) {
+          navMenu.classList.remove("show");
+          menuBtn.setAttribute("aria-expanded", "false");
+        }
+      }
+    });
+
+    // Mobile menu toggle
+    menuBtn.addEventListener("click", () => {
+      const expanded = menuBtn.getAttribute("aria-expanded") === "true";
+      menuBtn.setAttribute("aria-expanded", String(!expanded));
+      navMenu.classList.toggle("show");
+    });
+
+    // Search form: submit (Enter or click)
+    searchForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const query = (searchInput.value || "").trim();
+      if (!query) {
+        showToast("Please enter a search term");
+        return;
+      }
+      // For demo: show toast. Replace with a real search.
+      showToast(`Searching for: ${query}`);
+      // Optionally redirect or filter products here
+    });
+
+    // Newsletter (non-blocking)
+    const newsletterForm = document.getElementById("newsletterForm");
+    newsletterForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      showToast("Thank you for subscribing!");
+      newsletterForm.reset();
+    });
+
+    // Initialize
+    updateCart();
+  </script>
+
+</body>
+</html>
